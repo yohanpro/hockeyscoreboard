@@ -1,0 +1,12 @@
+.App {
+  width: 85vw;
+  height: 60vw;
+  background: rgba(0, 0, 0, 0.88);
+  display: block;
+  margin: 0 auto;
+  margin-top: 5%;
+  max-width: 1000px;
+  max-height: 700px;
+  border-radius: 5%;
+  position: relative;
+}
