@@ -1,9 +1,85 @@
 main {
-  width: 80%;
-  height: 150px;
-  background: orange;
+  width: 50%;
+  height: 25%;
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #434343,
+    #000000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   position: absolute;
-  top: 0;
+  top: -10%;
   left: 50%;
   transform: translateX(-50%);
+  border-radius: 15%;
+  border: none;
+}
+
+.timer {
+  width: 100%;
+  height: 60%;
+  text-align: center;
+  color: white;
+  font-size: 5rem;
+  font-weight: bold;
+  display: block;
+  margin-top: 2%;
+}
+.timer__btnContainer {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.timer__btnContainer > button {
+  width: 80px;
+  height: 25px;
+  background: #b2cecf;
+  border: none;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+}
+.timer__btnContainer > button:first-child {
+  margin-right: 20px;
+}
+
+.btn-timer:hover {
+  transform: scale(1.05);
+}
+.btn-timer:active {
+  background: #2980b9; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #ffffff,
+    #6dd5fa,
+    #2980b9
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #ffffff,
+    #6dd5fa,
+    #2980b9
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: blue;
+}
+.btn-timer p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+.btn-timer > div {
+  width: 100%;
+  height: 100%;
+  position: relative;
 }

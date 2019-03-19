@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
-import classes from './Layout.css';
+import './Layout.css';
+import Timer from '../Timer/Timer';
 
 class Layout extends Component {
   render() {
     return (
       <Aux>
-        <main>hi</main>
+        <main>
+          <Timer />
+        </main>
       </Aux>
     );
   }
