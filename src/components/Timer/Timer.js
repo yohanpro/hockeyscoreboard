@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
 import { Button } from 'reactstrap';
+import '../../styles/_timer.scss';
+import btnReset from '../../assets/images/btn-reset.png';
 
 class Timer extends Component {
   constructor(props) {
@@ -63,7 +65,12 @@ class Timer extends Component {
       isStoped: true,
     });
   }
-
+  resetCountDown = () => {
+    this.setState({
+      minute: 20,
+      second: '00',
+    });
+  };
   render() {
     const { minute, second } = this.state;
 
@@ -72,6 +79,7 @@ class Timer extends Component {
         <div className="timer">
           {minute}:{second}
         </div>
+        <img className="Reset" src={btnReset} onClick={this.resetCountDown} />
         <div className="timer__btnContainer">
           <Button className="btn-timer" onClick={this.stopCountDown}>
             <div>
