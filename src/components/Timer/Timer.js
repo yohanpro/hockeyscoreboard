@@ -9,13 +9,13 @@ class Timer extends Component {
     this.state = {
       minute: 20,
       second: '00',
+      isStoped: false,
     };
     this.intervalHandle = null;
     this.secondsRemaining = null;
     this.tick = this.tick.bind(this);
     this.startCountDown = this.startCountDown.bind(this);
     this.stopCountDown = this.stopCountDown.bind(this);
-    this.tick = this.tick.bind(this);
   }
 
   tick() {
@@ -44,6 +44,13 @@ class Timer extends Component {
     this.secondsRemaining--;
   }
   startCountDown() {
+    const { isStoped } = this.state;
+    // 만약 stop을 누른 이후 시작을 누르게 되면 minute * 시간이 되어버리므로  분이 00으로 리셋된다. 따라서 state에 추가로 isstoped를 true로 바꾸어줌
+    if (isStoped) {
+      this.intervalHandle = setInterval(this.tick, 1000);
+      this.setState({ isStoped: false });
+      return;
+    }
     this.intervalHandle = setInterval(this.tick, 1000);
     const minute = this.state.minute;
     this.secondsRemaining = minute * 60;
@@ -52,6 +59,9 @@ class Timer extends Component {
   stopCountDown() {
     clearInterval(this.intervalHandle);
     console.log(this.state.minute, this.state.second);
+    this.setState({
+      isStoped: true,
+    });
   }
 
   render() {
