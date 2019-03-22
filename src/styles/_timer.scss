@@ -1,0 +1,36 @@
+$color-ready: #f9dc5c;
+$color-active: #7f9183;
+
+.Reset {
+  width: 27px;
+  height: 27px;
+  position: absolute;
+  top: 33%;
+  right: 3%;
+  transform: rotate(23deg);
+  cursor: pointer;
+}
+
+.Reset:active,
+.Reset:focus {
+  animation: reset 1s linear;
+}
+
+@keyframes reset {
+  from {
+    transform: scale(1.1) rotate(180deg);
+  }
+}
+.btn-reset {
+  margin-left: 20px;
+}
+.btn-stop {
+}
+.timer__btnContainer .btn-timer {
+  border-radius: 5px;
+  cursor: pointer;
+}
+// .timer__btnContainer .btn-timer {
+//   background-color: $color-ready;
+// }
+// #7f9183

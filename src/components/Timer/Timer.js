@@ -1,9 +1,8 @@
 /* eslint-disable lines-between-class-members */
 import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
-import { Button } from 'reactstrap';
+// import { Button } from 'reactstrap';
 import '../../styles/_timer.scss';
-import btnReset from '../../assets/images/btn-reset.png';
 
 class Timer extends Component {
   constructor(props) {
@@ -12,6 +11,7 @@ class Timer extends Component {
       minute: 20,
       second: '00',
       isStoped: false,
+      isStarted: false,
     };
     this.intervalHandle = null;
     this.secondsRemaining = null;
@@ -50,12 +50,18 @@ class Timer extends Component {
     // 만약 stop을 누른 이후 시작을 누르게 되면 minute * 시간이 되어버리므로  분이 00으로 리셋된다. 따라서 state에 추가로 isstoped를 true로 바꾸어줌
     if (isStoped) {
       this.intervalHandle = setInterval(this.tick, 1000);
-      this.setState({ isStoped: false });
+      this.setState({
+        isStoped: false,
+        isStarted: true,
+      });
       return;
     }
     this.intervalHandle = setInterval(this.tick, 1000);
     const minute = this.state.minute;
     this.secondsRemaining = minute * 60;
+    this.setState({
+      isStarted: true,
+    });
   }
 
   stopCountDown() {
@@ -63,34 +69,65 @@ class Timer extends Component {
     console.log(this.state.minute, this.state.second);
     this.setState({
       isStoped: true,
+      isStarted: false,
     });
   }
-  resetCountDown = () => {
+  resetCountDown = e => {
     this.setState({
       minute: 20,
       second: '00',
     });
+    if (!this.state.isStoped) {
+      e.target.style.pointerEvents = 'none';
+    } else {
+      e.target.style.pointerEvents = 'all';
+    }
   };
   render() {
     const { minute, second } = this.state;
 
+    const buttonStyle = {
+      background: '#f9dc5c',
+      pointerEvents: 'all',
+    };
+    const buttonStyleActive = {
+      background: '#7f9183',
+      pointerEvents: 'none',
+    };
     return (
       <Aux>
         <div className="timer">
-          {minute}:{second}
+          {minute} : {second}
         </div>
-        <img className="Reset" src={btnReset} onClick={this.resetCountDown} />
         <div className="timer__btnContainer">
-          <Button className="btn-timer" onClick={this.stopCountDown}>
+          <button
+            className="btn-timer btn-stop"
+            style={this.state.isStarted ? buttonStyle : buttonStyleActive}
+            onClick={this.stopCountDown}
+          >
             <div>
-              <p>멈춤</p>
+              <p>Stop</p>
             </div>
-          </Button>
-          <Button className="btn-timer" onClick={this.startCountDown}>
+          </button>
+
+          <button
+            className="btn-timer btn-start"
+            style={this.state.isStarted ? buttonStyleActive : buttonStyle}
+            onClick={this.startCountDown}
+          >
             <div>
-              <p>시작</p>
+              <p>Start</p>
             </div>
-          </Button>
+          </button>
+          <button
+            className="btn-timer btn-reset"
+            style={this.state.isStoped ? buttonStyle : buttonStyleActive}
+            onClick={this.resetCountDown}
+          >
+            <div>
+              <p>Reset</p>
+            </div>
+          </button>
         </div>
       </Aux>
     );
