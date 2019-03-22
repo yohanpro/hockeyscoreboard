@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900');
-main {
+.Scoreboard {
   width: 50%;
   height: 25%;
   background: #000000; /* fallback for old browsers */
@@ -84,4 +84,9 @@ main {
   width: 100%;
   height: 100%;
   position: relative;
+}
+.padding {
+  position: relative;
+  height: 15%;
+  pointer-events: none;
 }
