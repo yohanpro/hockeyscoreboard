@@ -1,13 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900');
+@import url("https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900");
 .Scoreboard {
   width: 50%;
   height: 25%;
   background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #434343, #000000); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
     #434343,
@@ -31,14 +27,14 @@
   font-weight: bold;
   display: block;
   margin-top: 2%;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 .timer__btnContainer {
   width: 100%;
   height: 30%;
   display: flex;
   justify-content: center;
-  margin-top: 2%;
+  margin-top: 1rem;
 }
 
 .timer__btnContainer > button {
@@ -46,10 +42,10 @@
   height: 25px;
   border: none;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
   color: black;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 .timer__btnContainer > button:first-child {
   margin-right: 20px;
@@ -60,12 +56,7 @@
 }
 .btn-timer:active {
   background: #2980b9; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #ffffff,
-    #6dd5fa,
-    #2980b9
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to left, #ffffff, #6dd5fa, #2980b9); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to left,
     #ffffff,

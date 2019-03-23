@@ -2,11 +2,7 @@
   width: 85vw;
   height: 60vw;
   background: #16222a; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #3a6073,
-    #16222a
-  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to bottom, #3a6073, #16222a); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to bottom,
     #3a6073,
@@ -15,11 +11,10 @@
 
   display: block;
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 8%;
   max-width: 1024px;
   max-height: 700px;
   border-radius: 5%;
   position: relative;
-  margin-top: 5%;
   box-shadow: 0px 0px 20px #aaaaaa;
 }

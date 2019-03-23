@@ -1,0 +1,41 @@
+.Period {
+  &__container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #f9dc5c;
+    border-radius: 15px;
+  }
+  &_title {
+    width: 100%;
+    height: 50%;
+    font-size: 4rem;
+    color: #0c090d;
+    font-family: "Orbitron", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 150px;
+    & > p {
+      vertical-align: middle;
+    }
+  }
+  &__radio__container {
+    width: 100%;
+    height: 20%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    & > .PeriodCheck {
+      width: 33%;
+      height: 100%;
+      text-align: center;
+      display: block;
+      margin: 2% auto 0;
+      & input {
+        width: 70px;
+        height: 30px;
+      }
+    }
+  }
+}

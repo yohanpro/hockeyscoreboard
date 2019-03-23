@@ -1,7 +1,39 @@
+$color-ready: #f9dc5c;
+$color-active: #7f9183;
 .Scoreboard_main {
   width: 100%;
-  height: 45%;
+  height: 48%;
   display: grid;
-  grid-template-columns: repeat(3, 33%);
+  grid-template-columns: repeat(3, 33.3%);
   grid-template-rows: 100%;
+  margin-top: 3%;
+}
+.Score {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  // background: $color-ready;
+
+  &__teamName {
+    width: 100%;
+    height: 20%;
+    // background: $color-active;
+  }
+}
+.TeamName {
+  width: 70%;
+  height: 55px;
+  padding-bottom: 5px;
+  display: block;
+  background: none;
+  border-bottom: 3px solid $color-ready;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 3rem;
+  font-family: "Orbitron", sans-serif;
+  font-weight: bolder;
+  color: #fff;
 }

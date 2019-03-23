@@ -7,6 +7,11 @@ import Period from '../Period/Period';
 import '../../styles/_ScoarBoard_main.scss';
 
 class Layout extends Component {
+  state = {
+    isPeriodChanged: false,
+    teamName1: 'Home',
+    teamName2: 'Away',
+  };
   render() {
     return (
       <Aux>
@@ -15,9 +20,9 @@ class Layout extends Component {
         </div>
         <div className="padding" />
         <div className="Scoreboard_main">
-          <TeamScore />
+          <TeamScore teamName={this.state.teamName1} />
           <Period />
-          <TeamScore />
+          <TeamScore teamName={this.state.teamName2} />
         </div>
       </Aux>
     );
