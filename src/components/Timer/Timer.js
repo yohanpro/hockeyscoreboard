@@ -47,8 +47,9 @@ class Timer extends Component {
     this.secondsRemaining--;
   }
   startCountDown() {
-    const { isStoped, isReseted } = this.state;
+    const { isStoped, isReseted, minute } = this.state;
     // 만약 stop을 누른 이후 시작을 누르게 되면 minute * 시간이 되어버리므로  분이 00으로 리셋된다. 따라서 state에 추가로 isstoped를 true로 바꾸어줌
+
     if (isStoped) {
       this.setState({
         isStoped: false,
@@ -63,7 +64,7 @@ class Timer extends Component {
       return;
     }
     this.intervalHandle = setInterval(this.tick, 1000);
-    const minute = this.state.minute;
+
     this.secondsRemaining = minute * 60;
     this.setState({
       isStarted: true,

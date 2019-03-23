@@ -20,21 +20,28 @@
     }
   }
   &__radio__container {
-    width: 100%;
+    width: 90%;
     height: 20%;
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 0 auto;
     & > .PeriodCheck {
-      width: 33%;
+      width: 80px;
       height: 100%;
       text-align: center;
       display: block;
-      margin: 2% auto 0;
+      position: relative;
+      align-self: center;
       & input {
-        width: 70px;
-        height: 30px;
+        width: 50%;
+        height: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
   }

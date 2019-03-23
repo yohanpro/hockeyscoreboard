@@ -3,10 +3,11 @@ import '../../styles/_ScoarBoard_main.scss';
 class TeamScore extends Component {
   constructor(props) {
     super(props);
+    this.state = {};
   }
 
   render() {
-    const { teamName } = this.props;
+    const { teamName, teamScore1, teamScore2 } = this.props;
     return (
       <div className="Score">
         <div className="Score__teamName">
@@ -17,6 +18,9 @@ class TeamScore extends Component {
             maxLength="10"
             value={teamName}
           />
+        </div>
+        <div className="Score__team">
+          <p>{teamScore1}</p>
         </div>
       </div>
     );
