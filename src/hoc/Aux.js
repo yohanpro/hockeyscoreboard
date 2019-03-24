@@ -1,3 +1,6 @@
-const aux = props => props.children;
+import React, { Component, useEffect } from 'react';
+const aux = props => {
+  return props.children;
+};
 
 export default aux;

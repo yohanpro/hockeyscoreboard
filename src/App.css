@@ -18,6 +18,19 @@
   position: relative;
   box-shadow: 0px 0px 20px #aaaaaa;
 }
+button {
+  cursor: pointer;
+}
 button:focus {
   outline: 0 !important;
+  transform: scale(1.1);
+}
+@font-face {
+  font-family: "Digital Dismay";
+  font-style: normal;
+  font-weight: 400;
+
+  src: url("./assets/fonts/Digital_Dismay.otf"); /* IE9 Compat Modes */
+  src: local("Digital Dismay"), local("DigitalDismay"), url("./assets/fonts/Digital_Dismay.otf") format("otf"),
+    /* Modern Browsers */ url("./assets/fonts/Digital_Dismay.otf") format("truetype"); /* Safari, Android, iOS */
 }
