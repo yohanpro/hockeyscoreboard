@@ -1,5 +1,13 @@
 $color-ready: #f9dc5c;
 $color-active: #7f9183;
+@font-face {
+  font-family: "Digital Dismay";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/Digital_Dismay.otf"); /* IE9 Compat Modes */
+  src: local("Digital Dismay"), local("DigitalDismay"), url("../assets/fonts/Digital_Dismay.otf") format("otf"),
+    /* Modern Browsers */ url("../assets/fonts/Digital_Dismay.otf") format("truetype"); /* Safari, Android, iOS */
+}
 .Scoreboard_main {
   width: 100%;
   height: 48%;
@@ -38,16 +46,52 @@ $color-active: #7f9183;
   color: #fff;
 }
 .Score__team {
-  font-size: 13rem;
+  font-size: 18rem;
   width: 100%;
-  height: 80%;
+  height: 72%;
   color: white;
-  font-family: "Orbitron", sans-serif;
+  font-family: "Digital Dismay", sans-serif;
   text-align: center;
-  line-height: 260px;
+  line-height: 220px;
   & > p {
     width: 100%;
-    height: 30%;
+    height: 90%;
     vertical-align: middle;
+  }
+}
+
+.Score_button-container {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  & > button {
+    width: 40px;
+    height: 40px;
+    background: #06d6a0;
+    color: white;
+    font-size: 2rem;
+    border-radius: 50%;
+    border: none;
+    position: relative;
+    margin-right: 1rem;
+    & > img {
+      width: 60%;
+      vertical-align: middle;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+.Score_button:active,
+.Score_button:focus {
+  animation: scale 0.5s;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(1.1);
   }
 }

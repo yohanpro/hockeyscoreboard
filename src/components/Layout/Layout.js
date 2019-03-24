@@ -11,8 +11,8 @@ class Layout extends Component {
     isPeriodChanged: false,
     teamName1: 'Home',
     teamName2: 'Away',
-    teamScore1: 10,
-    teamScore2: 0,
+    teamScore1: null,
+    teamScore2: null,
   };
   render() {
     return (
@@ -24,12 +24,12 @@ class Layout extends Component {
         <div className="Scoreboard_main">
           <TeamScore
             teamName={this.state.teamName1}
-            teamScore1={this.state.teamScore1}
+            teamScore={this.state.teamScore1}
           />
           <Period />
           <TeamScore
             teamName={this.state.teamName2}
-            teamScore1={this.state.teamScore2}
+            teamScore={this.state.teamScore2}
           />
         </div>
       </Aux>

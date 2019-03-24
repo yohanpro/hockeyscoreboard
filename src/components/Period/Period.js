@@ -4,7 +4,7 @@ class Period extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      period: 'period1',
+      period: 'Period1',
     };
   }
 
@@ -22,9 +22,9 @@ class Period extends Component {
             <input
               type="radio"
               name="periods"
-              value="period1"
+              value="Period1"
               className="form-check-input"
-              checked={period === 'period1'}
+              checked={period === 'Period1'}
               onChange={this.handleOptionChange}
             />
           </div>
@@ -32,9 +32,9 @@ class Period extends Component {
             <input
               type="radio"
               name="periods"
-              value="period2"
+              value="Period2"
               className=""
-              checked={period === 'period2'}
+              checked={period === 'Period2'}
               onChange={this.handleOptionChange}
             />
           </div>
@@ -42,14 +42,14 @@ class Period extends Component {
             <input
               type="radio"
               name="periods"
-              value="period3"
+              value="Period3"
               className=""
-              checked={period === 'period3'}
+              checked={period === 'Period3'}
               onChange={this.handleOptionChange}
             />
           </div>
         </form>
-        <div class="Period_title">
+        <div className="Period_title">
           <p>{this.state.period}</p>
         </div>
       </div>
