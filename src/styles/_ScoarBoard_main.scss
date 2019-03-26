@@ -37,6 +37,7 @@ $color-active: #7f9183;
   font-family: "Orbitron", sans-serif;
   font-weight: bolder;
   color: #fff;
+  outline: none;
 }
 .Score__team {
   font-size: 14rem;
@@ -61,7 +62,7 @@ $color-active: #7f9183;
   & > button {
     width: 40px;
     height: 40px;
-    background: #06d6a0;
+    background: #2e282a;
     color: white;
     font-size: 2rem;
     border-radius: 50%;

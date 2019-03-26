@@ -1,7 +1,6 @@
 /* eslint-disable lines-between-class-members */
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
-// import { Button } from 'reactstrap';
 import '../../styles/_timer.scss';
 
 class Timer extends Component {

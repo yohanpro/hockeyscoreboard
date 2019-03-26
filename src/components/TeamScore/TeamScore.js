@@ -47,7 +47,7 @@ class TeamScore extends Component {
             className="TeamName"
             type="text"
             name="teamName"
-            maxLength="8"
+            maxLength="6"
             value={
               // 초기에 이름은 Layout에 있는 props에서 받아옴. this.state에 있는 teamName이 null이면 props에서 사용, 없을 경우 변경가능
               /* 

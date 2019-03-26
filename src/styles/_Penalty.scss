@@ -35,12 +35,20 @@
     padding-left: 20%;
   }
   &-player {
-    font-size: 2rem;
+    font-size: 3rem;
     background: black;
+    color: #f42b03;
+    font-family: "Digital Dismay", sans-serif;
+    line-height: 100%;
+    letter-spacing: 6px;
   }
   &-penaltyTime {
-    font-size: 2rem;
+    font-size: 3rem;
     background: black;
+    color: #f42b03;
+    font-family: "Digital Dismay", sans-serif;
+    line-height: 100%;
+    letter-spacing: 6px;
   }
   &-minus {
     width: 80%;
@@ -62,6 +70,12 @@
     margin-left: 60%;
     background: black;
     outline: none;
+    color: #fff;
+    font-size: 2.5rem;
+    font-family: "Digital Dismay", sans-serif;
+    line-height: 100%;
+    letter-spacing: 6px;
+    text-align: center;
   }
   &-plus {
     width: 80%;
