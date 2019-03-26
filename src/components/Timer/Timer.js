@@ -88,7 +88,6 @@ class Timer extends Component {
   };
   render() {
     const { minute, second } = this.state;
-
     const buttonStyle = {
       background: '#f9dc5c',
       pointerEvents: 'all',
