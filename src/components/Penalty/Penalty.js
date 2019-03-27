@@ -68,7 +68,6 @@ class Penalty extends Component {
       penaltyPlayer: '',
     });
   };
-  startCountDown = () => {};
 
   penaltyDeleteHandler = e => {
     let target = e.target.name;
@@ -91,19 +90,27 @@ class Penalty extends Component {
       this.setState({
         penaltyPersons: persons,
       });
+
       if (sec < 10) {
-        persons.second = '0' + sec;
+        person.second = '0' + sec;
         persons[0] = person;
+        console.log(persons[0]);
         this.setState({
           penaltyPersons: persons,
         });
       }
-      if (min < 10) {
-        person.min = '0' + min;
-      }
 
       if (min === 0 && sec === 0) {
         clearInterval(this.intervalHandle);
+        let persons = [...this.state.penaltyPersons];
+        let person = { ...persons[0] };
+        person.minute = '';
+        person.second = '';
+        person.player = '';
+        persons[0] = person;
+        this.setState({
+          penaltyPersons: persons,
+        });
       }
     } else {
       let persons = [...this.state.penaltyPersons];
@@ -113,7 +120,7 @@ class Penalty extends Component {
       persons[1] = person;
 
       if (sec < 10) {
-        persons.second = '0' + sec;
+        persons[1].second = '0' + sec;
       }
       if (min < 10) {
         person.min = '0' + min;
@@ -125,6 +132,9 @@ class Penalty extends Component {
       this.setState({
         penaltyPersons: persons,
       });
+    }
+    if (this.state.penaltyPersons[0].player === '') {
+      console.log('fdf');
     }
     this.secondsRemaining--;
   };
