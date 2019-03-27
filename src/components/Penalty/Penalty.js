@@ -13,14 +13,16 @@ class Penalty extends Component {
       PenalyPlayerStart is the player who can see in backboard(red)
       */
       penaltyPersons: [
-        { player: '', minute: '', second: '' },
-        { player: '', minute: '', second: '' },
+        { player: '', minute: '', second: '', id: '1' },
+        { player: '', minute: '', second: '', id: '2' },
       ],
       penaltyPlayer: '',
     };
     this.intervalHandle = null;
     this.intervalHandle_2 = null;
-    this.secondsRemaining = 70;
+    // this.secondsRemaining = 119;
+    this.secondsRemaining = 119;
+    this.secondsRemaining_2 = 119;
   }
   playerInputHandler = e => {
     this.setState({
@@ -70,18 +72,46 @@ class Penalty extends Component {
   };
 
   penaltyDeleteHandler = e => {
-    let target = e.target.name;
+    const { penaltyPersons } = this.state;
+    const target = e.target.name;
+
     if (target === 'penaltyStartMinus') {
+      let persons = [...this.state.penaltyPersons];
+      let targetPerson = { ...persons[0] };
+      targetPerson.minute = '';
+      targetPerson.second = '';
+      targetPerson.player = '';
+
+      clearInterval(this.intervalHandle);
+      this.setState({
+        penaltyPersons: penaltyPersons.map(person =>
+          person.id === '1' ? { ...targetPerson, id: '1' } : person,
+        ),
+      });
+      this.secondsRemaining = 119;
     } else {
+      let persons = [...this.state.penaltyPersons];
+      let targetPerson = { ...persons[1] };
+      targetPerson.minute = '';
+      targetPerson.second = '';
+      targetPerson.player = '';
+
+      clearInterval(this.intervalHandle_2);
+      this.setState({
+        penaltyPersons: penaltyPersons.map(person =>
+          person.id === '2' ? { ...targetPerson, id: '2' } : person,
+        ),
+      });
+      this.secondsRemaining_2 = 119;
     }
   };
 
   tick = player => {
     // console.log(this.secondsRemaining);
-    const min = Math.floor(this.secondsRemaining / 60);
-    const sec = this.secondsRemaining - min * 60;
 
     if (player === 'player1') {
+      const min = Math.floor(this.secondsRemaining / 60);
+      const sec = this.secondsRemaining - min * 60;
       let persons = [...this.state.penaltyPersons];
       let person = { ...persons[0] };
       person.minute = min;
@@ -112,7 +142,12 @@ class Penalty extends Component {
           penaltyPersons: persons,
         });
       }
+      this.secondsRemaining--;
+
+      //player 2일때
     } else {
+      const min = Math.floor(this.secondsRemaining_2 / 60);
+      const sec = this.secondsRemaining_2 - min * 60;
       let persons = [...this.state.penaltyPersons];
       let person = { ...persons[1] };
       person.minute = min;
@@ -122,21 +157,49 @@ class Penalty extends Component {
       if (sec < 10) {
         persons[1].second = '0' + sec;
       }
-      if (min < 10) {
-        person.min = '0' + min;
-      }
 
       if (min === 0 && sec === 0) {
         clearInterval(this.intervalHandle_2);
+        let persons = [...this.state.penaltyPersons];
+        let person = { ...persons[1] };
+        person.minute = '';
+        person.second = '';
+        person.player = '';
+        persons[1] = person;
+        this.setState({
+          penaltyPersons: persons,
+        });
       }
       this.setState({
         penaltyPersons: persons,
       });
+      this.secondsRemaining_2--;
     }
+
+    //만약 player 1이 0이 되어 없어졌을 경우 player 2를 위로 올려줌. SWAP
     if (this.state.penaltyPersons[0].player === '') {
-      console.log('fdf');
+      const { penaltyPersons } = this.state;
+      let persons = [...this.state.penaltyPersons];
+      const targetPerson_1 = { ...persons[1] };
+      let targetPerson_2 = { ...persons[1] };
+      targetPerson_2.minute = '';
+      targetPerson_2.second = '';
+      targetPerson_2.player = '';
+
+      // console.log(targetPerson);
+      this.setState({
+        penaltyPersons: penaltyPersons.map(person =>
+          person.id === '1'
+            ? { ...targetPerson_1, id: '1' }
+            : { ...targetPerson_2, id: '2' },
+        ),
+      });
+      //다시 player1과 2의 남은 시간을 서로 바꾸어 줌.
+      this.secondsRemaining = this.secondsRemaining_2;
+      this.secondsRemaining_2 = 119;
+      this.intervalHandle = setInterval(() => this.tick('player1'), 1000);
+      clearInterval(this.intervalHandle_2);
     }
-    this.secondsRemaining--;
   };
 
   render() {
