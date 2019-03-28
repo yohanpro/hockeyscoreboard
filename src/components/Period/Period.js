@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Popup from './../Popup/Popup';
 import '../../styles/_Periods.scss';
 class Period extends Component {
   constructor(props) {
@@ -12,6 +13,10 @@ class Period extends Component {
     this.setState({
       period: changeEvent.target.value,
     });
+  };
+
+  allReset = () => {
+    window.location.reload();
   };
   render() {
     const { period } = this.state;
@@ -52,6 +57,10 @@ class Period extends Component {
         <div className="Period_title">
           <p>{this.state.period}</p>
         </div>
+        <button className="AllReset" onClick={this.allReset}>
+          All Reset
+        </button>
+        {/* <Popup /> */}
       </div>
     );
   }

@@ -57,14 +57,14 @@ class Timer extends Component {
 
       if (isReseted) {
         const minute = this.state.minute;
-        this.secondsRemaining = minute * 60;
+        this.secondsRemaining = minute * 60 - 1;
       }
       this.intervalHandle = setInterval(this.tick, 1000);
       return;
     }
     this.intervalHandle = setInterval(this.tick, 1000);
 
-    this.secondsRemaining = minute * 60;
+    this.secondsRemaining = minute * 60 - 1;
     this.setState({
       isStarted: true,
     });

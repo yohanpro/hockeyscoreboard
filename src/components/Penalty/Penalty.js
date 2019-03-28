@@ -32,8 +32,7 @@ class Penalty extends Component {
 
   playerSubmitHandler = e => {
     const { penaltyPlayer, penaltyPersons } = this.state;
-    clearInterval(this.intervalHandle_2);
-    clearInterval(this.intervalHandle);
+
     if (penaltyPlayer === '') {
       //penalty number에 아무것도 없이 +를 누른 경우 그대로 종료 해줌
       return;
@@ -171,6 +170,7 @@ class Penalty extends Component {
         this.setState({
           penaltyPersons: persons,
         });
+        return;
       }
       this.setState({
         penaltyPersons: persons,
