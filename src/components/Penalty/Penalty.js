@@ -32,7 +32,8 @@ class Penalty extends Component {
 
   playerSubmitHandler = e => {
     const { penaltyPlayer, penaltyPersons } = this.state;
-
+    clearInterval(this.intervalHandle_2);
+    clearInterval(this.intervalHandle);
     if (penaltyPlayer === '') {
       //penalty number에 아무것도 없이 +를 누른 경우 그대로 종료 해줌
       return;
@@ -48,6 +49,7 @@ class Penalty extends Component {
         penaltyPersons: persons,
       });
       this.intervalHandle = setInterval(() => this.tick('player1'), 1000);
+      this.secondsRemaining = 119;
     } else if (
       penaltyPersons[0].player !== '' &&
       penaltyPersons[1].player === ''
@@ -124,7 +126,6 @@ class Penalty extends Component {
       if (sec < 10) {
         person.second = '0' + sec;
         persons[0] = person;
-        console.log(persons[0]);
         this.setState({
           penaltyPersons: persons,
         });
@@ -141,6 +142,7 @@ class Penalty extends Component {
         this.setState({
           penaltyPersons: persons,
         });
+        return;
       }
       this.secondsRemaining--;
 
